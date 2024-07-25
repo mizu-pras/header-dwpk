@@ -16,3 +16,9 @@ body {
     font-family: "Manrope", sans-serif;
     background: var(--Color-background-bg-prm, #0f101d);
 }
+
+.App {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}

@@ -1,9 +1,3 @@
-import LOBBY_ICON from "../../assets/lobby-icon.png";
-import LEADERBOARD_ICON from "../../assets/leaderboard-icon.png";
-import TRANSACTION_ICON from "../../assets/transaction-icon.png";
-import PROMOTION_ICON from "../../assets/promotion-icon.png";
-import TUTORIAL_ICON from "../../assets/tutorial-icon.png";
-import { useState } from "react";
 import styles from "./styles.module.scss";
 
 interface ItemProps {
@@ -11,6 +5,12 @@ interface ItemProps {
     label: string;
     isActive?: boolean;
     onClick?: () => void;
+}
+
+interface IProps {
+    menus: { label: string; logo: string }[];
+    activeMenu: number;
+    setActiveMenu: (value: number) => void;
 }
 
 const Item = ({ label, logo, isActive, onClick }: ItemProps) => {
@@ -25,31 +25,7 @@ const Item = ({ label, logo, isActive, onClick }: ItemProps) => {
     );
 };
 
-const Navigation = () => {
-    const [activeMenu, setActiveMenu] = useState(0);
-    const menus: { label: string; logo: string }[] = [
-        {
-            label: "Lobby",
-            logo: LOBBY_ICON,
-        },
-        {
-            label: "Leaderboard",
-            logo: LEADERBOARD_ICON,
-        },
-        {
-            label: "Transaction",
-            logo: TRANSACTION_ICON,
-        },
-        {
-            label: "Promotion",
-            logo: PROMOTION_ICON,
-        },
-        {
-            label: "Tutorial",
-            logo: TUTORIAL_ICON,
-        },
-    ];
-
+const Navigation = ({ menus, activeMenu, setActiveMenu }: IProps) => {
     return (
         <div className={styles.navigation}>
             {menus.map((menu, idx) => (
