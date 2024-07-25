@@ -51,7 +51,7 @@
         left: 50%;
         bottom: -1px;
         transform: translateX(-50%);
-        border: 0.8px solid #0f101d;
+        border: 0.8px solid transparent;
         background: #00c3d8;
         filter: drop-shadow(0px -1px 7px rgba(0, 0, 0, 0.5));
         transition: width 0.2s;
@@ -84,6 +84,7 @@
 
         &:after {
             width: 24px;
+            border-color: #0f101d;
             transition: width 0.2s;
         }
 
